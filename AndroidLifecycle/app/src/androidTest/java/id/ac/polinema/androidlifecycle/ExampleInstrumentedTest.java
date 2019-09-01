@@ -1,27 +1,44 @@
-package id.ac.polinema.androidlifecycle;
+public class MainActivity extends AppCompatActivity {
 
-import android.content.Context;
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_main);
+	}
 
-import androidx.test.platform.app.InstrumentationRegistry;
-import androidx.test.ext.junit.runners.AndroidJUnit4;
+	@Override
+	protected void onStart() {
+		super.onStart();
+		Toast.makeText(this, "Application On Start", Toast.LENGTH_SHORT).show();
+	}
 
-import org.junit.Test;
-import org.junit.runner.RunWith;
+	@Override
+	protected void onStop() {
+		super.onStop();
+		Toast.makeText(this, "Application On Stop", Toast.LENGTH_SHORT).show();
+	}
 
-import static org.junit.Assert.*;
+	@Override
+	protected void onRestart() {
+		super.onRestart();
+		Toast.makeText(this, "Application On Restart", Toast.LENGTH_SHORT).show();
+	}
 
-/**
- * Instrumented test, which will execute on an Android device.
- *
- * @see <a href="http://d.android.com/tools/testing">Testing documentation</a>
- */
-@RunWith(AndroidJUnit4.class)
-public class ExampleInstrumentedTest {
-	@Test
-	public void useAppContext() {
-		// Context of the app under test.
-		Context appContext = InstrumentationRegistry.getInstrumentation().getTargetContext();
+	@Override
+	protected void onResume() {
+		super.onResume();
+		Toast.makeText(this, "Application On Resume", Toast.LENGTH_SHORT).show();
+	}
 
-		assertEquals("id.ac.polinema.androidlifecycle", appContext.getPackageName());
+	@Override
+	protected void onPause() {
+		super.onPause();
+		Toast.makeText(this, "Application On Pause", Toast.LENGTH_SHORT).show();
+	}
+
+	@Override
+	protected void onDestroy() {
+		super.onDestroy();
+		Toast.makeText(this, "Application On Destroy", Toast.LENGTH_SHORT).show();
 	}
 }
